@@ -1,0 +1,64 @@
+======================================================================
+Part 1: FIND-S Trace on Table 2.1 (EnjoySport)
+======================================================================
+h_0 = <∅, ∅, ∅, ∅, ∅, ∅>
+Example 1 (+): <Sunny, Warm, Normal, Strong, Warm, Same>
+h_1 = <Sunny, Warm, Normal, Strong, Warm, Same>
+Example 2 (+): <Sunny, Warm, High, Strong, Warm, Same>
+h_2 = <Sunny, Warm, ?, Strong, Warm, Same>
+Example 3 (-): <Rainy, Cold, High, Strong, Warm, Change>
+h_3 = <Sunny, Warm, ?, Strong, Warm, Same>
+Example 4 (+): <Sunny, Warm, High, Strong, Cool, Change>
+h_4 = <Sunny, Warm, ?, Strong, ?, ?>
+
+======================================================================
+Part 2: Exercise 2.10 Main Experiment
+Target Concept: <Sunny, Warm, ?, ?, ?, ?>
+Seeds: 0 .. 19 (20 independent runs), N_max = 1000
+======================================================================
+Seed | Examples | Positives | Stopping Condition
+-------------------------------------------------------
+   0 |       18 |         5 | (i) Exact target learned
+   1 |        8 |         3 | (i) Exact target learned
+   2 |       29 |         4 | (i) Exact target learned
+   3 |       55 |         7 | (i) Exact target learned
+   4 |       32 |         5 | (i) Exact target learned
+   5 |       38 |         3 | (i) Exact target learned
+   6 |       32 |         4 | (i) Exact target learned
+   7 |       23 |         4 | (i) Exact target learned
+   8 |       17 |         3 | (i) Exact target learned
+   9 |       28 |         3 | (i) Exact target learned
+  10 |       21 |         4 | (i) Exact target learned
+  11 |       17 |         3 | (i) Exact target learned
+  12 |       36 |         5 | (i) Exact target learned
+  13 |       34 |         3 | (i) Exact target learned
+  14 |       29 |         4 | (i) Exact target learned
+  15 |       27 |         7 | (i) Exact target learned
+  16 |       21 |         3 | (i) Exact target learned
+  17 |       37 |         7 | (i) Exact target learned
+  18 |       83 |         6 | (i) Exact target learned
+  19 |       43 |         6 | (i) Exact target learned
+
+--- Summary of Stopping Conditions ---
+Ended by condition (i) [Exact target]: 20 / 20 runs
+Ended by condition (ii) [N_max=1000]:  0 / 20 runs
+
+--- Statistics for Condition (i) Runs (Total Examples Needed) ---
+Mean ± Std : 31.40 ± 16.11
+Median     : 29.00
+IQR        : 15.25
+Min        : 8
+Max        : 83
+
+======================================================================
+Part 3: Effect of Number of '?' Constraints in Target Concept
+======================================================================
+# of ? | Target Concept                             | Cond(i) | Cond(ii) | Mean ± Std      | Median (IQR)   | Min/Max
+---------------------------------------------------------------------------------------------------------------------
+     0 | <Sunny, Warm, Normal, Strong, Warm, Same>  |      20 |        0 | 95.25 ± 83.80   | 50.5 (100.5)   | 7 / 273
+     1 | <Sunny, Warm, Normal, Strong, Warm, ?>     |      20 |        0 | 169.55 ± 129.01 | 147.0 (143.0)  | 43 / 507
+     2 | <Sunny, Warm, Normal, Strong, ?, ?>        |      20 |        0 | 102.35 ± 75.32  | 93.0 (59.8)    | 15 / 271
+     3 | <Sunny, Warm, Normal, ?, ?, ?>             |      20 |        0 | 49.00 ± 27.64   | 44.0 (37.8)    | 7 / 103
+     4 | <Sunny, Warm, ?, ?, ?, ?>                  |      20 |        0 | 31.40 ± 16.11   | 29.0 (15.2)    | 8 / 83
+     5 | <Sunny, ?, ?, ?, ?, ?>                     |      20 |        0 | 16.85 ± 6.23    | 17.0 (4.5)     | 6 / 30
+     6 | <?, ?, ?, ?, ?, ?>                         |      20 |        0 | 5.15 ± 2.72     | 5.0 (2.0)      | 2 / 15
